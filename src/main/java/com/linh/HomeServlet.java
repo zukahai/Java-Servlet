@@ -3,6 +3,7 @@ package com.linh;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,30 +28,30 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-//		response.getWriter().append("Hello: ").append(request.getContextPath());
-//		String name = request.getParameter("name");
-//		String message = "Minh la " + name;
-//		request.setAttribute("message", message);
-//		requestDispatcher.forward(request, response);
-//	}
-//
-//	/**
-//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-//	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// TODO Auto-generated method stub
-//		doGet(request, response);
-//	}
-
-	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		resp.setContentType("text/html");
-		try(PrintWriter out = resp.getWriter()) {
-			out.print("Hello");
-		}
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+		response.getWriter().append("Hello: ").append(request.getContextPath());
+		String name = request.getParameter("name");
+		String message = "Minh la " + name;
+		request.setAttribute("message", message);
+		requestDispatcher.forward(request, response);
 	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+//	@Override
+//	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		// TODO Auto-generated method stub
+//		resp.setContentType("text/html");
+//		try(PrintWriter out = resp.getWriter()) {
+//			out.print("Hello");
+//		}
+//	}
 }
