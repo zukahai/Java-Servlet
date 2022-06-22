@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="javax.xml.crypto.Data"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -59,18 +61,11 @@
 
     <section class="album-catagory section-padding-100-0" style="margin-top: -110px;">
         <div id="myUL">
-
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-game-item t m s">
-                <div class="single-game">
-                    <a href="https://zukahai.github.io/Bida/" target="_blank">
-                        <img src="img/bg-img/bida.png" alt="">
-                        <div class="album-info">
-                            <h5>Bida</h5>
-                    </a>
-                    <p>HaiZuka</p>
-                    </div>
-                </div>
-            </div>
+			${name }
+            <%
+            	java.util.Date date = new java.util.Date();
+            	out.write("<h1> Now: " + date.toString() + "</h1>");
+            %>
 
             <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-game-item t m s">
                 <div class="single-game">

@@ -30,7 +30,7 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("HaiZukaGames/index.jsp");
 		response.getWriter().append("Hello: ").append(request.getContextPath());
 		String name = request.getParameter("name");
 		String message = "Minh la " + name;
@@ -43,6 +43,10 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+//		response.setContentType("text/html");
+//		try(PrintWriter out = response.getWriter()) {
+//			out.print("Hello");
+//		}
 		doGet(request, response);
 	}
 
