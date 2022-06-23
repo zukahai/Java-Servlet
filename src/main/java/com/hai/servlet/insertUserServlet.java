@@ -33,13 +33,14 @@ public class insertUserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			User user = new User();
-			user.setUsername("Hai");
-			user.setPassword("1");
+			user.setUsername("Linh");
+			user.setPassword("3");
 			
 			UserDao userDao = new UserDao();
 			userDao.insertUser(user);
 			
 			System.out.println("Insert success!");
+			response.getWriter().append("<h1> Insert success! " + user.getUsername() + "|" + user.getPassword()+"</h1>");
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

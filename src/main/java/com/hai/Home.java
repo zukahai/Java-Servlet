@@ -1,6 +1,8 @@
 package com.hai;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +37,11 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+		String name = request.getParameter("name");
+		String message = "Minh la " + name;
+		request.setAttribute("message", message);
+		requestDispatcher.forward(request, response);
 	}
 
 }
