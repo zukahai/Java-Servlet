@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
+
 //import org.apache.commons.beanutils.BeanUtils;
 
 import com.hai.dao.UserDao;
@@ -46,12 +48,7 @@ public class UserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			User user = new User();
-//			BeanUtils.populate(user, request.getParameterMap());
-//			<dependency>
-//			  <groupId>commons-beanutils</groupId>
-//			  <artifactId>commons-beanutils</artifactId>
-//			  <version>1.9.4</version>
-//			</dependency>
+			BeanUtils.populate(user, request.getParameterMap());
 			UserDao userDao = new UserDao();
 			user.setUsername("kk");
 			user.setPassword("3");

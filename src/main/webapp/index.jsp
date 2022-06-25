@@ -34,7 +34,7 @@
 		    		 	<button class="btn btn-primary" formaction="UserServlet/insert">Insert</button>
 		    		 	<button class="btn btn-warning" formaction="UserServlet/update">Update</button>
 		    		 	<button class="btn btn-danger" formaction="UserServlet/delete">Delete</button>
-		    		 	<button class="btn btn-info" formaction="UserServlet/reset">Reser</button>
+		    		 	<button class="btn btn-info" formaction="UserServlet/reset">Reset</button>
 		    		</div>
 	    		</form>
 	    	</div>
