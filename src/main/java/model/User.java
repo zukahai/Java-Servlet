@@ -24,6 +24,11 @@ public class User implements Serializable {
 
 	public User() {
 	}
+	
+	public String display() {
+		return "[username=" + this.username + ", password=" + this.password + ". fullname=" + this.fullname +
+				", age=" + this.age + "]";
+	}
 
 	public String getUsername() {
 		return this.username;

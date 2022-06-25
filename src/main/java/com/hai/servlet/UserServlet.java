@@ -18,8 +18,8 @@ import model.User;
 /**
  * Servlet implementation class UserServlet
  */
-@WebServlet(urlPatterns = {"UserServlet", "UserServlet/insert", "UserServlet/update",
-		"UserServlet/delete", "UserServlet/reset"})
+@WebServlet(urlPatterns = {"/UserServlet", "/UserServlet/insert", "/UserServlet/update",
+		"/UserServlet/delete", "/UserServlet/reset"})
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,7 +38,7 @@ public class UserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		User user = new User();
 		request.setAttribute("user", user);
-		request.getRequestDispatcher("/User.jsp").forward(request, response);
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	/**
@@ -49,11 +49,8 @@ public class UserServlet extends HttpServlet {
 		try {
 			User user = new User();
 			BeanUtils.populate(user, request.getParameterMap());
+			System.out.println(user.display());
 			UserDao userDao = new UserDao();
-			user.setUsername("kk");
-			user.setPassword("3");
-			user.setFullname("PPP");
-			user.setAge(22);
 			userDao.insertUser(user);
 			request.setAttribute("message", "User inserted!");
 		} catch (Exception e) {
