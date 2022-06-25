@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Manager</title>
+    <base href="/Servlet/" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
@@ -29,19 +30,19 @@
 	    		<form action="UserServlet" method="post">
 	    			<div class="form-group">
 		    		 	<label for="username">Username</label>
-		    		 	<input type="text" class="form-control" name="username" id="username" />
+		    		 	<input type="text" class="form-control" name="username" id="username" value="${ user.username }" />
 		    		</div>
 		    		<div class="form-group">
 		    		 	<label for="password">Password</label>
-		    		 	<input type="text" class="form-control" name="password" id="password" />
+		    		 	<input type="password" class="form-control" name="password" id="password" />
 		    		</div>
 		    		<div class="form-group">
 		    		 	<label for="fullname">Fullname</label>
-		    		 	<input type="text" class="form-control" name="fullname" id="fullname" />
+		    		 	<input type="text" class="form-control" name="fullname" id="fullname" value="${ user.fullname }"/>
 		    		</div>
 		    		<div class="form-group">
 		    		 	<label for="age">Age</label>
-		    		 	<input type="text" class="form-control" name="age" id="age" />
+		    		 	<input type="text" class="form-control" name="age" id="age" value="${ user.age }"/>
 		    		</div>
 		    		<div class="form-group mt-3">
 		    		 	<button class="btn btn-primary ml-2" formaction="UserServlet/insert">Insert</button>
@@ -61,12 +62,17 @@
 	    				<td>Age</td>
 	    				<td>&nbsp;</td>
 	    			</tr>
+	    			<c:forEach var="item" items="${ users }">
 	    			<tr>
-	    				<td></td>
-	    				<td></td>
-	    				<td></td>
-	    				<td></td>
+	    				<td>${ item.username }</td>
+	    				<td>${ item.fullname }</td>
+	    				<td>${ item.age }</td>
+	    				<td>
+	    					<a href="UserServlet/edit?username=${ item.username }">Edit</a>
+	    					<a href="UserServlet/delete?username=${ item.username }">Delete</a>
+	    				</td>
 	    			</tr>
+	    			</c:forEach>
 	    		</table>
 	    	</div>
 	    </div>

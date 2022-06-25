@@ -6,7 +6,7 @@ import model.User;
 
 public interface IUser {
 	public void insertUser(User user);
-	public void update(User user);
+	public void update(User user) throws Exception;
 	public void deleteById(String userID);
 	public User findById(String userID);
 	public List<User> findAll();

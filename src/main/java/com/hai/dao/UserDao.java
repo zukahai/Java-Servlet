@@ -31,7 +31,9 @@ public class UserDao implements IUser{
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(User user) throws Exception {
+		if (findById(user.getUsername()) == null)
+			throw new Exception("Unable to change username");
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
