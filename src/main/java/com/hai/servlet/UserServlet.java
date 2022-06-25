@@ -58,6 +58,7 @@ public class UserServlet extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("errol", e.getMessage());
 		}
+		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 }

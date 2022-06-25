@@ -1,6 +1,9 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,6 +14,16 @@
   </head>
   <body>
     <main class="container">
+    	<div class="row">
+    		<div class="col">
+    			<c:if test="${not empty message}">
+    				<div class="alert alert-success">${ message }</div>
+    			</c:if>
+    			<c:if test="${not empty error}">
+    				<div class="alert alert-danger">${ error }</div>
+    			</c:if>
+    		</div>
+    	</div>
 	    <div class="row">
 	    	<div class="col">
 	    		<form action="UserServlet" method="post">
@@ -31,8 +44,8 @@
 		    		 	<input type="text" class="form-control" name="age" id="age" />
 		    		</div>
 		    		<div class="form-group mt-3">
-		    		 	<button class="btn btn-primary" formaction="UserServlet/insert">Insert</button>
-		    		 	<button class="btn btn-warning" formaction="UserServlet/update">Update</button>
+		    		 	<button class="btn btn-primary ml-2" formaction="UserServlet/insert">Insert</button>
+		    		 	<button class="btn btn-warning ml-2" formaction="UserServlet/update">Update</button>
 		    		 	<button class="btn btn-danger" formaction="UserServlet/delete">Delete</button>
 		    		 	<button class="btn btn-info" formaction="UserServlet/reset">Reset</button>
 		    		</div>
