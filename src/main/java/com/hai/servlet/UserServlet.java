@@ -28,6 +28,7 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = request.getRequestURL().toString();
 		User user = null;
+		
 		if (url.contains("update")) {
 			update(request, response);
 		} else if (url.contains("delete")) {
@@ -37,10 +38,14 @@ public class UserServlet extends HttpServlet {
 			request.setAttribute("user", user);
 		} else if (url.contains("edit")) {
 			edit(request, response);
+		} 
+		String page = request.getParameter("page");
+		if (page != null) {
+			findAll(request, response, Integer.parseInt(page));
+		} else {
+			findAll(request, response, 1);
 		}
-		
-		findAll(request, response);
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		request.getRequestDispatcher("/user.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -57,8 +62,8 @@ public class UserServlet extends HttpServlet {
 		} else if (url.contains("edit")) {
 			edit(request, response);
 		}
-		findAll(request, response);
-		request.getRequestDispatcher("/index.jsp").forward(request, response);
+		findAll(request, response, 1);
+		request.getRequestDispatcher("/user.jsp").forward(request, response);
 	}
 	
 	protected void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -82,6 +87,23 @@ public class UserServlet extends HttpServlet {
 			List<User> list = userDao.findAll();
 			System.out.println(list);
 			request.setAttribute("users", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			request.setAttribute("errol", e.getMessage());
+		}
+	}
+	
+	protected void findAll(HttpServletRequest request, HttpServletResponse response, int page) throws ServletException, IOException {
+		int limit = 5;
+		try {
+			UserDao userDao = new UserDao();
+			List<User> list = userDao.findAll(page - 1, limit);
+			System.out.println(list);
+			request.setAttribute("users", list);
+			request.setAttribute("page", page);
+			System.out.println(userDao.NumberOfpage(limit));
+			request.setAttribute("numberofpage", userDao.NumberOfpage(limit));
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

@@ -15,4 +15,5 @@ public interface IUser {
 	public List<User> findByUsername(String username);
 	public List<User> findByPassword(String password);
 	public int count();
+	public int NumberOfpage(int limit);
 }

@@ -99,7 +99,7 @@ public class UserDao implements IUser{
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		TypedQuery<User> typedQuery = entityManager.createNamedQuery("User.findAll", User.class);
 		typedQuery.setFirstResult(page * pagesize);
-		typedQuery.setMaxResults(page);
+		typedQuery.setMaxResults(pagesize);
 		return typedQuery.getResultList();
 	}
 
@@ -141,9 +141,14 @@ public class UserDao implements IUser{
 	public int count() {
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
-		//User :Entity
-		String jqpl = "select count(u) form User u";
-		Query query = entityManager.createQuery(jqpl);
-		return ((Long)query.getSingleResult()).intValue();
+		TypedQuery<User> typedQuery = entityManager.createNamedQuery("User.findAll", User.class);
+		return typedQuery.getResultList().size();
 	}
+
+	@Override
+	public int NumberOfpage(int limit) {
+		// TODO Auto-generated method stub
+		return (int) Math.ceil((float)count() / limit);
+	}
+	
 }

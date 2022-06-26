@@ -76,6 +76,30 @@
 	    		</table>
 	    	</div>
 	    </div>
+	    
+	    <div class="row">
+	    	<nav aria-label="...">
+			  <ul class="pagination">
+			  <c:if test="${page > 1}">
+			  	<li class="page-item ${page <= 1 ? " disabled" : ""}">
+			      <a class="page-link" href="UserServlet?page=${ page - 1 }">Previous</a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="UserServlet?page=${ page - 1 }">${ page - 1}</a></li>
+			   </c:if>
+			    
+			    <li class="page-item active">
+			      <span class="page-link">${ page }</span>
+			    </li>
+			    
+			    <c:if test="${page < numberofpage}">
+			    	<li class="page-item">
+			    		<a class="page-link" href="UserServlet?page=${ page + 1 }">${ page + 1 }</a>
+			    	</li>
+			    	<li class="page-item"><a class="page-link" href="UserServlet?page=${ page + 1 }">Next</a></li>
+			    </c:if>
+			  </ul>
+			</nav>
+	    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
