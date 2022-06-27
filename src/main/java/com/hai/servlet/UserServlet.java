@@ -24,6 +24,8 @@ import model.User;
 		"/UserServlet/delete", "/UserServlet/reset", "/UserServlet/edit"})
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static int limit = 10;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = request.getRequestURL().toString();
@@ -95,7 +97,6 @@ public class UserServlet extends HttpServlet {
 	}
 	
 	protected void findAll(HttpServletRequest request, HttpServletResponse response, int page) throws ServletException, IOException {
-		int limit = 5;
 		try {
 			UserDao userDao = new UserDao();
 			List<User> list = userDao.findAll(page - 1, limit);

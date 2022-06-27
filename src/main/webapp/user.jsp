@@ -16,6 +16,11 @@
   <body>
     <main class="container">
     	<div class="row">
+  			<div class="alert alert-success">
+  				<h4>User manager</h4>
+  			</div>
+  		</div>
+    	<div class="row">
     		<div class="col">
     			<c:if test="${not empty message}">
     				<div class="alert alert-success">${ message }</div>
@@ -55,6 +60,7 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col">
+	    		<hr>
 	    		<table class="table table-stripe">
 	    			<tr>
 	    				<th>Username</th>
@@ -76,7 +82,7 @@
 	    		</table>
 	    	</div>
 	    </div>
-	    
+	    <hr>
 	    <div class="row">
 	    	<nav aria-label="...">
 			  <ul class="pagination">

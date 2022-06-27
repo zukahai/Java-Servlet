@@ -1,0 +1,77 @@
+27-Jun-2022 12:24:25.766 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.64
+27-Jun-2022 12:24:25.767 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 2 2022 19:08:46 UTC
+27-Jun-2022 12:24:25.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.64.0
+27-Jun-2022 12:24:25.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 8.1
+27-Jun-2022 12:24:25.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.3
+27-Jun-2022 12:24:25.768 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+27-Jun-2022 12:24:25.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jre1.8.0_51
+27-Jun-2022 12:24:25.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_51-b16
+27-Jun-2022 12:24:25.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+27-Jun-2022 12:24:25.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:24:25.769 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:24:25.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\conf\logging.properties
+27-Jun-2022 12:24:25.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+27-Jun-2022 12:24:25.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+27-Jun-2022 12:24:25.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+27-Jun-2022 12:24:25.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+27-Jun-2022 12:24:25.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:24:25.778 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:24:25.778 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\temp
+27-Jun-2022 12:24:25.798 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\MinGW\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\dotnet\;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\84961\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\84961\AppData\Local\Programs\Python\Python310\;C:\Users\84961\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\84961\AppData\Local\Programs\Python\Python36\;C:\Users\84961\AppData\Local\Microsoft\WindowsApps;C:\Users\84961\AppData\Local\GitHubDesktop\bin;C:\Users\84961\AppData\Roaming\npm;C:\Users\84961\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\84961\AppData\Roaming\Composer\vendor\bin;C:\Users\84961\.dotnet\tools;.]
+27-Jun-2022 12:24:26.458 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+27-Jun-2022 12:24:26.523 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1088] milliseconds
+27-Jun-2022 12:24:26.565 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+27-Jun-2022 12:24:26.566 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.64]
+27-Jun-2022 12:24:26.579 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\docs]
+27-Jun-2022 12:24:27.119 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [161] milliseconds.
+27-Jun-2022 12:24:27.148 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\docs] has finished in [569] ms
+27-Jun-2022 12:24:27.149 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\examples]
+27-Jun-2022 12:24:27.746 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\examples] has finished in [597] ms
+27-Jun-2022 12:24:27.748 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\host-manager]
+27-Jun-2022 12:24:27.800 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\host-manager] has finished in [52] ms
+27-Jun-2022 12:24:27.800 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\manager]
+27-Jun-2022 12:24:27.843 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\manager] has finished in [42] ms
+27-Jun-2022 12:24:27.843 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\ROOT]
+27-Jun-2022 12:24:27.867 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\ROOT] has finished in [24] ms
+27-Jun-2022 12:24:27.878 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+27-Jun-2022 12:24:27.926 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1400] milliseconds
+27-Jun-2022 12:27:39.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.64
+27-Jun-2022 12:27:39.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 2 2022 19:08:46 UTC
+27-Jun-2022 12:27:39.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.64.0
+27-Jun-2022 12:27:39.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 8.1
+27-Jun-2022 12:27:39.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.3
+27-Jun-2022 12:27:39.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+27-Jun-2022 12:27:39.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jre1.8.0_51
+27-Jun-2022 12:27:39.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_51-b16
+27-Jun-2022 12:27:39.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+27-Jun-2022 12:27:39.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:27:39.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:27:39.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\conf\logging.properties
+27-Jun-2022 12:27:39.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+27-Jun-2022 12:27:39.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+27-Jun-2022 12:27:39.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+27-Jun-2022 12:27:39.802 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+27-Jun-2022 12:27:39.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:27:39.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64
+27-Jun-2022 12:27:39.807 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\temp
+27-Jun-2022 12:27:39.824 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jre1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\MinGW\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\dotnet\;C:\Program Files\apache-maven-3.8.5-bin\apache-maven-3.8.5\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\84961\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\84961\AppData\Local\Programs\Python\Python310\;C:\Users\84961\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\84961\AppData\Local\Programs\Python\Python36\;C:\Users\84961\AppData\Local\Microsoft\WindowsApps;C:\Users\84961\AppData\Local\GitHubDesktop\bin;C:\Users\84961\AppData\Roaming\npm;C:\Users\84961\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\84961\AppData\Roaming\Composer\vendor\bin;C:\Users\84961\.dotnet\tools;.]
+27-Jun-2022 12:27:40.257 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+27-Jun-2022 12:27:40.307 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [728] milliseconds
+27-Jun-2022 12:27:40.346 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+27-Jun-2022 12:27:40.347 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.64]
+27-Jun-2022 12:27:40.377 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\Servlet.war]
+27-Jun-2022 12:27:42.596 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+27-Jun-2022 12:27:42.844 WARNING [main] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [199] milliseconds.
+27-Jun-2022 12:27:42.869 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\Servlet.war] has finished in [2,492] ms
+27-Jun-2022 12:27:42.871 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\docs]
+27-Jun-2022 12:27:42.906 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\docs] has finished in [35] ms
+27-Jun-2022 12:27:42.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\examples]
+27-Jun-2022 12:27:43.245 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\examples] has finished in [337] ms
+27-Jun-2022 12:27:43.246 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\host-manager]
+27-Jun-2022 12:27:43.292 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\host-manager] has finished in [46] ms
+27-Jun-2022 12:27:43.293 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\manager]
+27-Jun-2022 12:27:43.334 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\manager] has finished in [40] ms
+27-Jun-2022 12:27:43.335 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\ROOT]
+27-Jun-2022 12:27:43.359 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [E:\Java-Servlet\Tomcat\apache-tomcat-9.0.64\webapps\ROOT] has finished in [24] ms
+27-Jun-2022 12:27:43.365 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+27-Jun-2022 12:27:43.386 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [3077] milliseconds
