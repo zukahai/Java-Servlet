@@ -9,9 +9,9 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.hai.utils.JpaUtils;
+import com.interface_.IUser;
 
 import model.User;
-
 public class UserDao implements IUser{
 	public void insertUser(User user) {
 		EntityManager entityManager = JpaUtils.getEntityManager();
@@ -108,11 +108,16 @@ public class UserDao implements IUser{
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		//User :Entity
-		String jqpl = "select u form User u where u.username = :username and u.password = :password";
-		TypedQuery<User> typedQuery = entityManager.createNamedQuery(jqpl, User.class);
+		String jqpl = "select u from User u where u.username = :username and u.password = :password";
+		TypedQuery<User> typedQuery = entityManager.createQuery(jqpl, User.class);
 		typedQuery.setParameter("username", username);
 		typedQuery.setParameter("password", password);
-		return typedQuery.getSingleResult();
+		try {
+			return typedQuery.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
@@ -120,8 +125,8 @@ public class UserDao implements IUser{
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		//User :Entity
-		String jqpl = "select u form User u where u.username like :username";
-		TypedQuery<User> typedQuery = entityManager.createNamedQuery(jqpl, User.class);
+		String jqpl = "select u from User u where u.username like :username";
+		TypedQuery<User> typedQuery = entityManager.createQuery(jqpl, User.class);
 		typedQuery.setParameter("username", "%" + username + "%");
 		return typedQuery.getResultList();
 	}
