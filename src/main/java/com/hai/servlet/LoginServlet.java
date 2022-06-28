@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			SolveCookie solveCookie = new SolveCookie(request, response);
 
 			Cookie cookie = new Cookie("username", username);
-			cookie.setMaxAge(60 * 60 * 24);
+			cookie.setMaxAge(-60 * 60 * 24);
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			
