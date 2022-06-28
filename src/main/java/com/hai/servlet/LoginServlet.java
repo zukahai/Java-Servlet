@@ -3,10 +3,13 @@ package com.hai.servlet;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hai.cookie.SolveCookie;
+import com.hai.dao.ImageDao;
 import com.hai.dao.UserDao;
 
 import model.User;
@@ -29,14 +32,30 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		System.out.println(username + " " + password);
 		
 		UserDao userDao = new UserDao();
+		
 		User user = userDao.checkLogin(username, password);
-		if (user != null)
+		if (user != null) {
+			request.setAttribute("username", user.getUsername());
+			String fullname = user.getFullname();
+			request.setAttribute("fullname", fullname);
+			ImageDao imageDao = new ImageDao();
+			request.setAttribute("Images", imageDao.findByUsername(username));
+			
+			SolveCookie solveCookie = new SolveCookie(request, response);
+
+			Cookie cookie = new Cookie("username", username);
+			cookie.setMaxAge(60 * 60 * 24);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+			
 			request.getRequestDispatcher("upload.jsp").forward(request, response);
-		else
+		}
+		else {
 			request.setAttribute("error", "Login failer!");
-		request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+			
 	}
 }

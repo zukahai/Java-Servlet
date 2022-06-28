@@ -1,7 +1,7 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="en">
@@ -16,7 +16,7 @@
   	<div class="container">
   		<div class="row">
   			<div class="alert alert-success">
-  				<h2>Upload Image and Document</h2>
+  				<h2>${ fullname } - Upload Image</h2>
   			</div>
   		</div>
   		<div class="row">
@@ -32,10 +32,21 @@
   						<input type="file" class="custom-file-input" id="document" name="document" />
   					</div>
   					--%>
-  					<hr>
   					<button class="btn btn-primary">Upload</button>
   				</form>
   			</div>
+  		</div>
+  		<hr>
+  		<div class="row mt-3">
+  			<c:forEach var="image" items="${ Images }"> 
+			  <div class="col-lg-4 mb-4 mb-lg-0">
+			    <img
+			      src="uploads/${ image.url }"
+			      class="w-100 shadow-1-strong rounded mb-4"
+			      alt="Waves at Sea"
+			    />
+			  </div>
+  			</c:forEach>
   		</div>
   	</div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

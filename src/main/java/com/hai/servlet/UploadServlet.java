@@ -4,14 +4,23 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import com.hai.cookie.SolveCookie;
+import com.hai.dao.ImageDao;
+import com.hai.dao.UserDao;
+
+import model.Image;
+import model.User;
 
 /**
  * Servlet implementation class UploadServlet
@@ -23,12 +32,37 @@ public class UploadServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String username = "Error";
+		
+		Cookie[] cookies = request.getCookies();
+				
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("username"))
+					username = c.getValue();
+			}
+		}
+		
+		ImageDao imageDao = new ImageDao();
+		request.setAttribute("Images", imageDao.findByUsername(username));
+		request.setAttribute("username", username);
+		
+		UserDao userDao = new UserDao();
+		User user = userDao.findById(username);
+		String fullname = user.getFullname();
+		request.setAttribute("fullname", fullname);
+		
 		request.getRequestDispatcher("upload.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//Cac du lieu duoc xu li se luu vao folder uploads o server
+		// D:\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Servlet\
+		ImageDao imageDao = new ImageDao();
+		UserDao userDao = new UserDao();
+		SolveCookie solveCookie = new SolveCookie(request, response);
+		
 		String uploadFolder = request.getServletContext().getRealPath("/uploads");
 		Path uploadPath = Paths.get(uploadFolder);
 		
@@ -37,15 +71,42 @@ public class UploadServlet extends HttpServlet {
 		}
 		
 		Part imagepart = request.getPart("image");
-		String imageFilename = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
+//		String imageFilename = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
+		String imageFilename = imageDao.randomImageName();
 		imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
 		request.setAttribute("image", imageFilename);
+		
+		String username = "Error";
+		
+		Cookie[] cookies = request.getCookies();
+				
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("username"))
+					username = c.getValue();
+			}
+		}
+		
+		Image image = new Image();
+		image.setId(imageDao.count() + 1);
+		image.setUsername(username);
+		image.setUrl(imageFilename);
+		image.setDatetime(new Date().toString());
+		imageDao.insertImage(image);
+		
+		request.setAttribute("Images", imageDao.findByUsername(username));
+		request.setAttribute("username", username);
+		
+		User user = userDao.findById(username);
+		String fullname = user.getFullname();
+		request.setAttribute("fullname", fullname);
+		
 		
 //		Part documentPart = request.getPart("document");
 //		String documentFilename = Path.of(documentPart.getSubmittedFileName()).getFileName().toString();
 //		documentPart.write(Paths.get(uploadPath.toString(), documentFilename).toString());
 //		request.setAttribute("document", documentFilename);
 		
-		request.getRequestDispatcher("resultUpload.jsp").forward(request, response);
+		request.getRequestDispatcher("upload.jsp").forward(request, response);
 	}
 }

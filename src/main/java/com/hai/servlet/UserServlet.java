@@ -155,5 +155,4 @@ public class UserServlet extends HttpServlet {
 			request.setAttribute("error", e.getMessage());
 		}
 	}
-
 }

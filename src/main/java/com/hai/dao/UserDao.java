@@ -146,8 +146,10 @@ public class UserDao implements IUser{
 	public int count() {
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
-		TypedQuery<User> typedQuery = entityManager.createNamedQuery("User.findAll", User.class);
-		return typedQuery.getResultList().size();
+		//User :Entity
+		String jqpl = "select count(u) from User u";
+		Query query = entityManager.createQuery(jqpl);
+		return ((Long)query.getSingleResult()).intValue();
 	}
 
 	@Override

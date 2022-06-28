@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 27, 2022 lúc 11:38 AM
+-- Thời gian đã tạo: Th6 28, 2022 lúc 10:37 PM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -24,6 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `image`
+--
+
+CREATE TABLE `image` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  `datetime` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `image`
+--
+
+INSERT INTO `image` (`id`, `username`, `url`, `datetime`) VALUES
+(1, 'UserName0001', '4vfjgldz3ll6jelyuzka6lrfwik5v06w1p26kg1cadpnzbcs6l81g7qk6v9zum0vrmi4hox1ogjdpvne.png', 'Wed Jun 29 03:30:57 ICT 2022'),
+(2, 'UserName0001', '2y8yjmlpy2miwa9xct2pwxxsevvbzrdy7tyti12mo7s3iybd9fyckoa0d2cunsd5c9emdd6jtftl613t.png', 'Wed Jun 29 03:32:39 ICT 2022'),
+(3, 'UserName0001', 'q6zxqcmhr8cc32hha27tiwkaw27pyatl7jjjdp58beg6bjrrehpxq770j2w3haphxzntozfgfw0i774j.png', 'Wed Jun 29 03:32:52 ICT 2022'),
+(4, 'UserName0001', 'qbqza18q0kc49khgb66jlqaizppylvj8ribx3jveyjah4by7w07iod12smypx0ciojgi14084u999nra.png', 'Wed Jun 29 03:33:18 ICT 2022'),
+(5, 'UserName0001', 'hefwv13y4spx174js6jo5pnh6jjplhl0rgjqp1f7d34fg97gu14bj0ei3m73934g0rys6vehswh2r2k5.png', 'Wed Jun 29 03:36:23 ICT 2022'),
+(6, 'UserName0001', 'pzpmyt7b98eqslbkhr65ljmzfbbxnhvi4lzvndd17o6vgtgqitdxdbtrp4xtdod0sgvzflz506v57aym.png', 'Wed Jun 29 03:36:44 ICT 2022'),
+(7, 'UserName0001', 'gsa4d5xqvf7rue4m4f1szou5jrcj15m9rh802wknh7telgae6q7zmyw66ai4ppz5rs0jcgz2w6ca5i1t.png', 'Wed Jun 29 03:36:59 ICT 2022');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `user`
 --
 
@@ -39,7 +65,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`username`, `password`, `fullname`, `age`) VALUES
-('UserName0001', 'Password0001', 'Fullname0001', 48),
+('UserName0001', 'Password0001', 'Phan &#272;&#7913;c H&#7843;i', 48),
 ('UserName0002', 'Password0002', 'Fullname0002', 46),
 ('UserName0003', 'Password0003', 'Fullname0003', 17),
 ('UserName0004', 'Password0004', 'Fullname0004', 35),
@@ -166,6 +192,12 @@ INSERT INTO `user` (`username`, `password`, `fullname`, `age`) VALUES
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `user`
