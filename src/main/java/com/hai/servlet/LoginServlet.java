@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		UserDao userDao = new UserDao();
 		User user = userDao.checkLogin(username, password);
 		if (user != null)
-			request.setAttribute("message", "Login success!" + username);
+			request.getRequestDispatcher("upload.jsp").forward(request, response);
 		else
 			request.setAttribute("error", "Login failer!");
 		request.getRequestDispatcher("login.jsp").forward(request, response);

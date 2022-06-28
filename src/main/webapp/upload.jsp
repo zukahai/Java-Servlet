@@ -26,10 +26,12 @@
   						<label for="image" class="custom-file-label">Image</label>
   						<input type="file" class="custom-file-input" id="image" name="image" />
   					</div>
+  					<%-- 
   					<div class="custom-file mb-4">
   						<label for="document" class="custom-file-label">Document</label>
   						<input type="file" class="custom-file-input" id="document" name="document" />
   					</div>
+  					--%>
   					<hr>
   					<button class="btn btn-primary">Upload</button>
   				</form>

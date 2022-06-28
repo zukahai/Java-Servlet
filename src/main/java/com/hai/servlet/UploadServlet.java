@@ -35,18 +35,16 @@ public class UploadServlet extends HttpServlet {
 		if (!Files.exists(uploadPath)) {
 			Files.createDirectory(uploadPath);
 		}
+		
 		Part imagepart = request.getPart("image");
-		Part documentPart = request.getPart("document");
-		
-		//Tra ve ten File nguoi dung da gui den
 		String imageFilename = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
-		String documentFilename = Path.of(documentPart.getSubmittedFileName()).getFileName().toString();
-		
 		imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
-		documentPart.write(Paths.get(uploadPath.toString(), documentFilename).toString());
-		
 		request.setAttribute("image", imageFilename);
-		request.setAttribute("document", documentFilename);
+		
+//		Part documentPart = request.getPart("document");
+//		String documentFilename = Path.of(documentPart.getSubmittedFileName()).getFileName().toString();
+//		documentPart.write(Paths.get(uploadPath.toString(), documentFilename).toString());
+//		request.setAttribute("document", documentFilename);
 		
 		request.getRequestDispatcher("resultUpload.jsp").forward(request, response);
 	}

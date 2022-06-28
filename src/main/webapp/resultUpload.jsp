@@ -20,10 +20,12 @@
   					Your image file: ${ image } <br>
   					<image src="uploads/${ image }" alt=""></image>
   				</li>
+  				<%-- 
   				<li>
   					Your document file: ${ document } <br>
   					<a href="uploads/${ document }">Click here to dowload</a>
   				</li>
+  				--%>
   			</ul>
   		</div>
   	</div>
