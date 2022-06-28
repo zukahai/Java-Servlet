@@ -14,7 +14,9 @@
   </head>
   <body>
   
-  	<div class="container">
+  	<jsp:include page="menu.jsp"></jsp:include>
+  
+  	<div class="container mt-4">
   		<div class="row">
   			<div class="col">
   				<div class="alert alert-success">
