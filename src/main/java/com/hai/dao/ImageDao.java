@@ -45,7 +45,7 @@ public class ImageDao implements IImage{
 	public List<Image> findByUsername(String username) {
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
-		String jqpl = "select i from Image i where i.username = :username ORDER BY i.datetime DESC";
+		String jqpl = "select i from Image i where i.username = :username ORDER BY i.id DESC";
 		TypedQuery<Image> typedQuery = entityManager.createQuery(jqpl, Image.class);
 		typedQuery.setParameter("username", username);
 		return typedQuery.getResultList();

@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home <%--<span class="sr-only">(current)</span> --%></a>
+        <a class="nav-link" href="./">Home <%--<span class="sr-only">(current)</span> --%></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="UserServlet">User Manage</a>
@@ -28,7 +28,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Upload</a>
+          <a class="dropdown-item" href="UploadServlet">Upload</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="LogoutServlet">LogOut</a>
          </div>

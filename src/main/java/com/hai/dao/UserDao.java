@@ -13,7 +13,10 @@ import com.interface_.IUser;
 
 import model.User;
 public class UserDao implements IUser{
-	public void insertUser(User user) {
+	public void insertUser(User user) throws Exception {
+		if (findById(user.getUsername()) != null)
+			throw new Exception("Username already exists");
+		
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		

@@ -5,7 +5,7 @@ import java.util.List;
 import model.User;
 
 public interface IUser {
-	public void insertUser(User user);
+	public void insertUser(User user) throws Exception;
 	public void update(User user) throws Exception;
 	public void deleteById(String userID);
 	public User findById(String userID);

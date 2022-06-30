@@ -37,12 +37,11 @@ public class RegisterServlet extends HttpServlet {
 				userDao.insertUser(user);
 				request.setAttribute("message", "Register success!");
 			}
-				
 			else
 				request.setAttribute("error", "Register failer!");
-		} catch (IllegalAccessException | InvocationTargetException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.setAttribute("error", e.getMessage());
 		}
 		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}

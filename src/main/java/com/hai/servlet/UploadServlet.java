@@ -43,16 +43,22 @@ public class UploadServlet extends HttpServlet {
 			}
 		}
 		
-		ImageDao imageDao = new ImageDao();
-		request.setAttribute("Images", imageDao.findByUsername(username));
-		request.setAttribute("username", username);
-		
-		UserDao userDao = new UserDao();
-		User user = userDao.findById(username);
-		String fullname = user.getFullname();
-		request.setAttribute("fullname", fullname);
-		
-		request.getRequestDispatcher("upload.jsp").forward(request, response);
+		// check login
+		if (username.equals("Error")) {
+			request.setAttribute("message", "Please login to upload file!");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} else {
+			ImageDao imageDao = new ImageDao();
+			request.setAttribute("Images", imageDao.findByUsername(username));
+			request.setAttribute("username", username);
+			
+			UserDao userDao = new UserDao();
+			User user = userDao.findById(username);
+			String fullname = user.getFullname();
+			request.setAttribute("fullname", fullname);
+			
+			request.getRequestDispatcher("upload.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,12 +76,6 @@ public class UploadServlet extends HttpServlet {
 			Files.createDirectory(uploadPath);
 		}
 		
-		Part imagepart = request.getPart("image");
-//		String imageFilename = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
-		String imageFilename = imageDao.randomImageName();
-		imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
-		request.setAttribute("image", imageFilename);
-		
 		String username = "Error";
 		
 		Cookie[] cookies = request.getCookies();
@@ -87,12 +87,22 @@ public class UploadServlet extends HttpServlet {
 			}
 		}
 		
-		Image image = new Image();
-		image.setId(imageDao.count() + 1);
-		image.setUsername(username);
-		image.setUrl(imageFilename);
-		image.setDatetime(new Date().toString());
-		imageDao.insertImage(image);
+		Part imagepart = request.getPart("image");
+		String readFileName = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
+		if (readFileName.length() > 0) {
+			String imageFilename = imageDao.randomImageName();
+			imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
+			request.setAttribute("image", imageFilename);
+			
+			Image image = new Image();
+			image.setId(imageDao.count() + 1);
+			image.setUsername(username);
+			image.setUrl(imageFilename);
+			image.setDatetime(new Date().toString());
+			imageDao.insertImage(image);
+		} else {
+			request.setAttribute("error", "There is no file you want to send!");
+		}
 		
 		request.setAttribute("Images", imageDao.findByUsername(username));
 		request.setAttribute("username", username);
