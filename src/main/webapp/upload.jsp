@@ -44,7 +44,7 @@
 			    <img
 			      src="uploads/${ image.url }"
 			      class="w-100 shadow-1-strong rounded mb-4"
-			      alt="Waves at Sea"
+			      alt="${ image.url }"
 			    />
 			  </div>
   			</c:forEach>

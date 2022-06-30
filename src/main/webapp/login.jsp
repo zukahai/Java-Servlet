@@ -35,7 +35,8 @@
 		    		 	<label for="password">Password</label>
 		    		 	<input type="password" class="form-control" name="password" id="password" />
 		    		</div>
-		    		<button class="btn btn-primary">Login</button>
+		    		<button class="btn btn-warning">Login</button>
+		    		<a class="btn btn-primary ml-2" href="RegisterServlet">Register</a>
 	  			</form>
   			</div>
   		</div>
