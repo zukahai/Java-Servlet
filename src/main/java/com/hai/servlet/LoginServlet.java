@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			
-			request.getRequestDispatcher("upload.jsp").forward(request, response);
+			request.getRequestDispatcher("nextPage.jsp").forward(request, response);
 		}
 		else {
 			request.setAttribute("error", "Login failer!");

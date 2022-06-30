@@ -1,6 +1,31 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
+<%@page import="model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+	String username = "Error";
+	String fullname = "";
+	
+	Cookie[] cookies = request.getCookies();
+			
+	if (cookies != null) {
+		for (Cookie c : cookies) {
+			if (c.getName().equals("username"))
+				username = c.getValue();
+		}
+	}
+	if (!username.equals("Error")) {
+		UserDao userDao = new UserDao();
+		User user = userDao.findById(username);
+		if (user != null) {
+			fullname = user.getFullname();
+			System.out.println(user.display());
+		}
+	}
+	
+%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">HaiZuka</a>
@@ -21,10 +46,10 @@
       </li>
      
     </ul>
-    <c:if test="${cookie['username'].getValue().length() > 0}">
+    <% if (fullname.length() > 0)  {%>
     <form class="form-inline my-2 my-lg-0  nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          ${cookie['username'].getValue()}
+          <%= fullname %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profile</a>
@@ -33,12 +58,10 @@
           <a class="dropdown-item" href="LogoutServlet">LogOut</a>
          </div>
     </form>
-    </c:if>
-    
-    <c:if test="${cookie['username'] ==  null}">
+    <% } else {%>
     	 <form class="form-inline my-2 my-lg-0  nav-item dropdown">
           <a class="dropdown-item active" href="LoginServlet">Login</a>
     	</form>
-    </c:if>
+    <% } %>
   </div>
 </nav>

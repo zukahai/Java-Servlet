@@ -35,10 +35,14 @@ public class RegisterServlet extends HttpServlet {
 			if (user.getPassword().equals(password2)) {
 				UserDao userDao = new UserDao();
 				userDao.insertUser(user);
+				request.setAttribute("user", user);
 				request.setAttribute("message", "Register success!");
 			}
-			else
+			else {
+				request.setAttribute("user", user);
 				request.setAttribute("error", "Register failer!");
+			}
+				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			request.setAttribute("error", e.getMessage());
