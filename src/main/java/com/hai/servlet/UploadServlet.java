@@ -26,43 +26,26 @@ import model.User;
  * Servlet implementation class UploadServlet
  */
 @MultipartConfig
-@WebServlet("/UploadServlet")
+@WebServlet(urlPatterns = {"/UploadServlet", "/UploadServlet/insert"})
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = "Error";
-		
-		Cookie[] cookies = request.getCookies();
-				
-		if (cookies != null) {
-			for (Cookie c : cookies) {
-				if (c.getName().equals("username"))
-					username = c.getValue();
-			}
-		}
-		
-		// check login
-		if (username.equals("Error")) {
-			request.setAttribute("message", "Please login to upload file!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		} else {
-			ImageDao imageDao = new ImageDao();
-			request.setAttribute("Images", imageDao.findByUsername(username));
-			request.setAttribute("username", username);
-			
-			UserDao userDao = new UserDao();
-			User user = userDao.findById(username);
-			String fullname = user.getFullname();
-			request.setAttribute("fullname", fullname);
-			
-			request.getRequestDispatcher("upload.jsp").forward(request, response);
-		}
+		GET(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String url = request.getRequestURL().toString();
+		
+		if (url.contains("insert")) {
+			insert(request, response);
+		}
+		
+		request.getRequestDispatcher("/upload.jsp").forward(request, response);
+	}
+	
+	protected void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Cac du lieu duoc xu li se luu vao folder uploads o server
 		// D:\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Servlet\
 		ImageDao imageDao = new ImageDao();
@@ -117,6 +100,37 @@ public class UploadServlet extends HttpServlet {
 //		documentPart.write(Paths.get(uploadPath.toString(), documentFilename).toString());
 //		request.setAttribute("document", documentFilename);
 		
-		request.getRequestDispatcher("upload.jsp").forward(request, response);
+	}
+	
+	protected void GET(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String username = "Error";
+		
+		Cookie[] cookies = request.getCookies();
+				
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("username"))
+					username = c.getValue();
+			}
+		}
+		
+		// check login
+		if (username.equals("Error")) {
+			request.setAttribute("message", "Please login to upload file!");
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+		
+		
+		ImageDao imageDao = new ImageDao();
+		request.setAttribute("Images", imageDao.findByUsername(username));
+		request.setAttribute("username", username);
+		
+		UserDao userDao = new UserDao();
+		User user = userDao.findById(username);
+		String fullname = user.getFullname();
+		request.setAttribute("fullname", fullname);
+		
+		request.getRequestDispatcher("/upload.jsp").forward(request, response);
 	}
 }
