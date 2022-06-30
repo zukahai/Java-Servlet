@@ -76,8 +76,9 @@
   		</div>
   		<hr>
   		<div class="row mt-3">
-  			<c:forEach var="image" items="${ Images }"> 
-			  <div class="col-lg-4 mb-lg-0">
+  			<c:forEach var="image" items="${ Images }">
+			<div class="col-lg-4 mb-lg-0">
+			  <form action="" method="post"> 
 			    <img
 			      src="uploads/${ image.url }"
 			      class="w-100 img-fluid .img-thumbnail img-container mb-2"
@@ -88,10 +89,12 @@
 		                <button class="btn btn btn-warning mr-1">View</button>
 		            </a>
 					
-			  		<button class="btn btn-primary ml-1">Upload</button>
+			  		<button class="btn btn-danger ml-1" formaction="UploadServlet/delete?url=${ image.url }">Delete</button>
 				</div>
-			  </div>
+				</form>
+			</div>
   			</c:forEach>
+  			
   		</div>
   		
 	

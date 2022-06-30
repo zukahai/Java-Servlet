@@ -56,5 +56,9 @@ public class Image implements Serializable {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String toString() {
+		return "[id=" + this.id + ", username=" + this.username + ", url=" + this.url + ", datetime=" + this.datetime + "]";
+	}
 
 }

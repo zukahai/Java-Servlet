@@ -21,7 +21,6 @@
 		User user = userDao.findById(username);
 		if (user != null) {
 			fullname = user.getFullname();
-			System.out.println(user.display());
 		}
 	}
 	
