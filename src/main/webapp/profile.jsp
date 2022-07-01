@@ -1,3 +1,6 @@
+<%@page import="org.hibernate.internal.build.AllowSysOut"%>
+<%@page import="com.hai.dao.InformationDao"%>
+<%@page import="model.Information"%>
 <%@page import="model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -5,14 +8,20 @@
     
 <%
 	UserDao userDao = new UserDao();
+	InformationDao informationDao = new InformationDao();
 	User user = new User();
+	Information information = new Information();
 	try{
-		user = userDao.findById(request.getParameter("username"));
+		String username = request.getParameter("username");
+		user = userDao.findById(username);
+		information = informationDao.findByUsername(username);
+		
 	} catch(Exception e) {
 		e.printStackTrace();
 	}
-	if (user == null)
-		user = new User();
+	
+	user = (user != null ? user : new User());
+	information = (information != null ? information : new Information());
 
 %>    
     
@@ -35,7 +44,7 @@
 	        <div class="card">
 	          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
 	            <div class="ms-4 mt-1 ml-3 d-flex flex-column" style="width: 150px;">
-	              <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/286299148_1397109327438665_8021210654497368906_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=jv2ThommeV0AX8CI9zm&_nc_ht=scontent.fdad2-1.fna&oh=00_AT8OGz37U2VEHZbb3N5v2glsRwW8q8kJi7GTdmbcgorjbA&oe=62C3CC08"
+	              <img src="uploads/<%= information.getUrlavata() %>"
 	                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2">
 	              <a type="button" class="btn btn-outline-dark mt-5" data-mdb-ripple-color="dark" style="z-index: 1;" href="ProfileServlet/edit?username=<%= user.getUsername() %>">
 	                Edit profile
@@ -44,6 +53,7 @@
 	            <div class="ms-3 my-auto">
 	            	<p class="ml-3"><%= user.getUsername() %> | Age: <%= user.getAge() %></p>
 		            <h5 class="ml-3"><%= user.getFullname() %></h5>
+		            <p class="ml-3"><%= information.getEmail() %></p>
 	            </div>
 	          </div>
 	          <div class="p-4 text-black" style="background-color: #f8f9fa;">

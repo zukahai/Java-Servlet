@@ -3,6 +3,7 @@
 	<persistence-unit name="Servlet" transaction-type="RESOURCE_LOCAL">
 		<class>model.Image</class>
 		<class>model.User</class>
+		<class>model.Information</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/usermanager"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

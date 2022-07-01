@@ -77,7 +77,6 @@ public class UploadServlet extends HttpServlet {
 		// D:\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Servlet\
 		ImageDao imageDao = new ImageDao();
 		UserDao userDao = new UserDao();
-		SolveCookie solveCookie = new SolveCookie(request, response);
 		
 		String uploadFolder = request.getServletContext().getRealPath("/uploads");
 		Path uploadPath = Paths.get(uploadFolder);
