@@ -14,10 +14,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title><%= user.getFullname() %> | HaiZuka</title>
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= user.getFullname() %> | HaiZuka</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body class="bg-black">
 	<jsp:include page="menu.jsp"></jsp:include>
@@ -35,7 +36,7 @@
 	                Edit profile
 	              </button>
 	            </div>
-	            <div class="ms-3" style="margin-top: 130px;">
+	            <div class="ms-3 my-auto">
 	              <h5 class="ml-3"><%= user.getFullname() %></h5>
 	              <p class="ml-3">Age: <%= user.getAge() %></p>
 	            </div>
@@ -46,25 +47,9 @@
 	                <p class="mb-1 h5">253</p>
 	                <p class="small text-muted mb-0">Photos</p>
 	              </div>
-	              <div class="px-3">
-	                <p class="mb-1 h5">1026</p>
-	                <p class="small text-muted mb-0">Followers</p>
-	              </div>
-	              <div>
-	                <p class="mb-1 h5">478</p>
-	                <p class="small text-muted mb-0">Following</p>
-	              </div>
 	            </div>
 	          </div>
 	          <div class="card-body p-4 text-black">
-	            <div class="mb-5">
-	              <p class="lead fw-normal mb-1">About</p>
-	              <div class="p-4" style="background-color: #f8f9fa;">
-	                <p class="font-italic mb-1">Web Developer</p>
-	                <p class="font-italic mb-1">Lives in New York</p>
-	                <p class="font-italic mb-0">Photographer</p>
-	              </div>
-	            </div>
 	            <div class="d-flex justify-content-between align-items-center mb-4">
 	              <p class="lead fw-normal mb-0">Recent photos</p>
 	              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
