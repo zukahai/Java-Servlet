@@ -11,14 +11,23 @@
 	InformationDao informationDao = new InformationDao();
 	User user = new User();
 	Information information = new Information();
-	try{
-		String username = request.getParameter("username");
-		user = userDao.findById(username);
-		information = informationDao.findByUsername(username);
-		
-	} catch(Exception e) {
-		e.printStackTrace();
+	
+	String username = "";
+	
+	
+	username = request.getParameter("username");
+	if (username == null) {
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("username"))
+					username = c.getValue();
+			}
+		}
 	}
+	
+	user = userDao.findById(username);
+	information = informationDao.findByUsername(username);
 	
 	user = (user != null ? user : new User());
 	information = (information != null ? information : new Information());
@@ -45,7 +54,8 @@
 	          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
 	            <div class="ms-4 mt-1 ml-3 d-flex flex-column" style="width: 150px;">
 	              <img src="uploads/<%= information.getUrlavata() %>"
-	                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2">
+	                alt="Generic placeholder image" class="img-fluid img-thumbnail thumb-post mt-4 mb-2">
+	           
 	              <a type="button" class="btn btn-outline-dark mt-5" data-mdb-ripple-color="dark" style="z-index: 1;" href="ProfileServlet/edit?username=<%= user.getUsername() %>">
 	                Edit profile
 	              </a>

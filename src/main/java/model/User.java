@@ -23,6 +23,10 @@ public class User implements Serializable {
 	private String password;
 
 	public User() {
+		this.username = "You username";
+		this.age = 0;
+		this.fullname = "FullName";
+		this.password = "";
 	}
 
 	public String getUsername() {
