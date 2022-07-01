@@ -10,7 +10,7 @@ public interface IUser {
 	public void deleteById(String userID);
 	public User findById(String userID);
 	public List<User> findAll();
-	public List<User> findAll(int page, int pagesize);
+	public List<User> findAll(int page, int limit);
 	public User checkLogin(String username, String password);
 	public List<User> findByUsername(String username);
 	public List<User> findByPassword(String password);

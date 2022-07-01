@@ -40,6 +40,16 @@ public class ImageDao implements IImage{
 		Query query = entityManager.createQuery(jqpl);
 		return ((Long)query.getSingleResult()).intValue();
 	}
+	
+	@Override
+	public int countByUsername(String username) {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = JpaUtils.getEntityManager();
+		String jqpl = "select count(i) from Image i where i.username = :username";
+		Query query = entityManager.createQuery(jqpl);
+		query.setParameter("username", username);
+		return ((Long)query.getSingleResult()).intValue();
+	}
 
 	@Override
 	public List<Image> findByUsername(String username) {
@@ -48,6 +58,18 @@ public class ImageDao implements IImage{
 		String jqpl = "select i from Image i where i.username = :username ORDER BY i.datetime DESC";
 		TypedQuery<Image> typedQuery = entityManager.createQuery(jqpl, Image.class);
 		typedQuery.setParameter("username", username);
+		return typedQuery.getResultList();
+	}
+	
+	@Override
+	public List<Image> findByUsername(String username, int page, int limit) {
+		// TODO Auto-generated method stub
+		EntityManager entityManager = JpaUtils.getEntityManager();
+		String jqpl = "select i from Image i where i.username = :username ORDER BY i.datetime DESC";
+		TypedQuery<Image> typedQuery = entityManager.createQuery(jqpl, Image.class);
+		typedQuery.setParameter("username", username);
+		typedQuery.setFirstResult(page * limit);
+		typedQuery.setMaxResults(limit);
 		return typedQuery.getResultList();
 	}
 
@@ -111,5 +133,11 @@ public class ImageDao implements IImage{
 			if (arr.get(i) - arr.get(i - 1) > 1)
 				return arr.get(i - 1) + 1;
 		return arr.size() + 1;
+	}
+
+	@Override
+	public int NumberOfpage(int limit, String username) {
+		// TODO Auto-generated method stub
+		return (int) Math.ceil((float)countByUsername(username)/ limit);
 	}
 }

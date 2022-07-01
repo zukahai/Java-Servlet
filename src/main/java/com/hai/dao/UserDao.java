@@ -94,12 +94,12 @@ public class UserDao implements IUser{
 	}
 
 	@Override
-	public List<User> findAll(int page, int pagesize) {
+	public List<User> findAll(int page, int limit) {
 		// TODO Auto-generated method stub
 		EntityManager entityManager = JpaUtils.getEntityManager();
 		TypedQuery<User> typedQuery = entityManager.createNamedQuery("User.findAll", User.class);
-		typedQuery.setFirstResult(page * pagesize);
-		typedQuery.setMaxResults(pagesize);
+		typedQuery.setFirstResult(page * limit);
+		typedQuery.setMaxResults(limit);
 		return typedQuery.getResultList();
 	}
 

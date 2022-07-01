@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import com.hai.cookie.SolveCookie;
 import com.hai.dao.ImageDao;
 import com.hai.dao.UserDao;
 
@@ -29,6 +28,7 @@ import model.User;
 @WebServlet(urlPatterns = {"/UploadServlet", "/UploadServlet/insert", "/UploadServlet/delete"})
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private int limit = 6;
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -36,66 +36,62 @@ public class UploadServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ImageDao imageDao = new ImageDao();
+		UserDao userDao = new UserDao();
+		
 		String url = request.getRequestURL().toString();
 		
+		String username = "Error";
+		
+		Cookie[] cookies = request.getCookies();
+				
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("username"))
+					username = c.getValue();
+			}
+		}
+		
 		if (url.contains("insert")) {
-			insert(request, response);
+			insert(request, response, username);
 		} else if (url.contains("delete")) {
 			delete(request, response);
 		}
+		
+		
+		User user = userDao.findById(username);
+		String fullname = user.getFullname();
+		
+		request.setAttribute("Images", imageDao.findByUsername(username, 1, limit));
+		request.setAttribute("username", username);
+		request.setAttribute("fullname", fullname);
+		request.setAttribute("page", 1);
+		request.setAttribute("numberofpage", imageDao.NumberOfpage(limit, username));
 		
 		request.getRequestDispatcher("/upload.jsp").forward(request, response);
 	}
 	
 	protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ImageDao imageDao = new ImageDao();
-		UserDao userDao = new UserDao();
-		String username = "Error";
-		
-		Cookie[] cookies = request.getCookies();
-				
-		if (cookies != null) {
-			for (Cookie c : cookies) {
-				if (c.getName().equals("username"))
-					username = c.getValue();
-			}
-		}
-		
 		String url = request.getParameter("url");
 		Image image = imageDao.findByURL(url);
 		imageDao.delete(image);
-		request.setAttribute("Images", imageDao.findByUsername(username));
-		request.setAttribute("username", username);
-		
-		User user = userDao.findById(username);
-		String fullname = user.getFullname();
-		request.setAttribute("fullname", fullname);
 	}
 	
-	protected void insert(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void insert(HttpServletRequest request, HttpServletResponse response, String username) throws ServletException, IOException {
+		uploadFile(request, response, username);
+	}
+	
+	protected void uploadFile(HttpServletRequest request, HttpServletResponse response, String username) throws ServletException, IOException {
 		//Cac du lieu duoc xu li se luu vao folder uploads o server
 		// D:\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Servlet\
 		ImageDao imageDao = new ImageDao();
-		UserDao userDao = new UserDao();
-		
 		String uploadFolder = request.getServletContext().getRealPath("/uploads");
 		Path uploadPath = Paths.get(uploadFolder);
 		
 		if (!Files.exists(uploadPath)) {
 			Files.createDirectory(uploadPath);
 		}
-		
-		String username = "Error";
-		
-		Cookie[] cookies = request.getCookies();
-				
-		if (cookies != null) {
-			for (Cookie c : cookies) {
-				if (c.getName().equals("username"))
-					username = c.getValue();
-			}
-		}
-		
 		Part imagepart = request.getPart("image");
 		String readFileName = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
 		if (readFileName.length() > 0) {
@@ -112,20 +108,6 @@ public class UploadServlet extends HttpServlet {
 		} else {
 			request.setAttribute("error", "There is no file you want to send!");
 		}
-		
-		request.setAttribute("Images", imageDao.findByUsername(username));
-		request.setAttribute("username", username);
-		
-		User user = userDao.findById(username);
-		String fullname = user.getFullname();
-		request.setAttribute("fullname", fullname);
-		
-		
-//		Part documentPart = request.getPart("document");
-//		String documentFilename = Path.of(documentPart.getSubmittedFileName()).getFileName().toString();
-//		documentPart.write(Paths.get(uploadPath.toString(), documentFilename).toString());
-//		request.setAttribute("document", documentFilename);
-		
 	}
 	
 	protected void GET(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -149,13 +131,18 @@ public class UploadServlet extends HttpServlet {
 		
 		
 		ImageDao imageDao = new ImageDao();
-		request.setAttribute("Images", imageDao.findByUsername(username));
-		request.setAttribute("username", username);
+		String textPage = request.getParameter("page");
+		int page = (textPage == null) ? 1 : Integer.parseInt(textPage);
 		
 		UserDao userDao = new UserDao();
 		User user = userDao.findById(username);
 		String fullname = user.getFullname();
+		
+		request.setAttribute("Images", imageDao.findByUsername(username, page - 1, limit));
+		request.setAttribute("username", username);
+		request.setAttribute("page", page);
 		request.setAttribute("fullname", fullname);
+		request.setAttribute("numberofpage", imageDao.NumberOfpage(limit, username));
 		
 		request.getRequestDispatcher("/upload.jsp").forward(request, response);
 	}

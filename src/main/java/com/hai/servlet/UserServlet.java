@@ -101,10 +101,8 @@ public class UserServlet extends HttpServlet {
 		try {
 			UserDao userDao = new UserDao();
 			List<User> list = userDao.findAll(page - 1, limit);
-			System.out.println(list);
 			request.setAttribute("users", list);
 			request.setAttribute("page", page);
-			System.out.println(userDao.NumberOfpage(limit));
 			request.setAttribute("numberofpage", userDao.NumberOfpage(limit));
 		} catch (Exception e) {
 			// TODO: handle exception
