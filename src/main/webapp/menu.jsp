@@ -47,11 +47,11 @@
     </ul>
     <% if (fullname.length() > 0)  {%>
     <form class="form-inline my-2 my-lg-0  nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle text-success font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= fullname %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="ProfileServlet?username=<%=username%>">Profile</a>
           <a class="dropdown-item" href="UploadServlet">Upload</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="LogoutServlet">LogOut</a>

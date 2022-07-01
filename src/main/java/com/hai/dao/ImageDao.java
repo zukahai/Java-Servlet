@@ -105,6 +105,8 @@ public class ImageDao implements IImage{
 		Collections.sort(arr);  
 		if (arr.size() == 0)
 			return 1;
+		if (arr.get(0) > 1)
+			return 1;
 		for (int i = 1; i < arr.size(); i++)
 			if (arr.get(i) - arr.get(i - 1) > 1)
 				return arr.get(i - 1) + 1;
