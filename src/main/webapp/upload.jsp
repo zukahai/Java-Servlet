@@ -86,7 +86,7 @@
 			    />
 			    <div class="d-flex justify-content-center mb-4">
 				    <a href="#galleryModal" id="view" data-large-src="uploads/${ image.url }" data-toggle="modal">
-		                <button class="btn btn btn-warning mr-1">View</button>
+		                <button class="btn btn btn-success mr-1">View</button>
 		            </a>
 					
 			  		<button class="btn btn-danger ml-1" formaction="UploadServlet/delete?url=${ image.url }">Delete</button>
@@ -110,8 +110,8 @@
 		            <div class="modal-body p-0 text-center bg-alt">
 		                <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="loaded-image mx-auto img-fluid">
 		            </div>
-		            <div class="modal-footer">
-		                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">OK</button>
+		            <div class="modal-footer d-flex justify-content-center">
+		                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
 		            </div>
 		        </div>
 		    </div>

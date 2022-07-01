@@ -30,7 +30,6 @@ public class RegisterServlet extends HttpServlet {
 		User user = new User();
 		try {
 			BeanUtils.populate(user, request.getParameterMap());
-			System.out.println(user.display());
 			String password2 = request.getParameter("password2");
 			if (user.getPassword().equals(password2)) {
 				UserDao userDao = new UserDao();

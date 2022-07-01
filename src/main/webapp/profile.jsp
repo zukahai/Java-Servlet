@@ -5,7 +5,12 @@
     
 <%
 	UserDao userDao = new UserDao();
-	User user = userDao.findById(request.getParameter("username"));
+	User user = new User();
+	try{
+		user = userDao.findById(request.getParameter("username"));
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
 	if (user == null)
 		user = new User();
 
@@ -17,6 +22,7 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><%= user.getFullname() %> | HaiZuka</title>
+	<base href="/Servlet/" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -31,14 +37,13 @@
 	            <div class="ms-4 mt-1 ml-3 d-flex flex-column" style="width: 150px;">
 	              <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/286299148_1397109327438665_8021210654497368906_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=jv2ThommeV0AX8CI9zm&_nc_ht=scontent.fdad2-1.fna&oh=00_AT8OGz37U2VEHZbb3N5v2glsRwW8q8kJi7GTdmbcgorjbA&oe=62C3CC08"
 	                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2">
-	              <button type="button" class="btn btn-outline-dark mt-5" data-mdb-ripple-color="dark"
-	                style="z-index: 1;">
+	              <a type="button" class="btn btn-outline-dark mt-5" data-mdb-ripple-color="dark" style="z-index: 1;" href="ProfileServlet/edit?username=<%= user.getUsername() %>">
 	                Edit profile
-	              </button>
+	              </a>
 	            </div>
 	            <div class="ms-3 my-auto">
-	              <h5 class="ml-3"><%= user.getFullname() %></h5>
-	              <p class="ml-3">Age: <%= user.getAge() %></p>
+	            	<p class="ml-3"><%= user.getUsername() %> | Age: <%= user.getAge() %></p>
+		            <h5 class="ml-3"><%= user.getFullname() %></h5>
 	            </div>
 	          </div>
 	          <div class="p-4 text-black" style="background-color: #f8f9fa;">

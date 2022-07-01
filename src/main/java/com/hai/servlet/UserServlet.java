@@ -74,7 +74,6 @@ public class UserServlet extends HttpServlet {
 		try {
 			User user = new User();
 			BeanUtils.populate(user, request.getParameterMap());
-			System.out.println(user.display());
 			UserDao userDao = new UserDao();
 			userDao.insertUser(user);
 			request.setAttribute("message", "User inserted!");
@@ -131,7 +130,6 @@ public class UserServlet extends HttpServlet {
 		try {
 			User user = new User();
 			BeanUtils.populate(user, request.getParameterMap());
-			System.out.println(user.display());
 			UserDao userDao = new UserDao();
 			userDao.update(user);
 			request.setAttribute("user", user);

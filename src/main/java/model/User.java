@@ -16,18 +16,13 @@ public class User implements Serializable {
 	@Id
 	private String username;
 
-	private String password;
-	
-	private String fullname;
-	
 	private int age;
 
+	private String fullname;
+
+	private String password;
+
 	public User() {
-	}
-	
-	public String display() {
-		return "[username=" + this.username + ", password=" + this.password + ". fullname=" + this.fullname +
-				", age=" + this.age + "]";
 	}
 
 	public String getUsername() {
@@ -38,6 +33,22 @@ public class User implements Serializable {
 		this.username = username;
 	}
 
+	public int getAge() {
+		return this.age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getFullname() {
+		return this.fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
 	public String getPassword() {
 		return this.password;
 	}
@@ -46,19 +57,11 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", age=" + age + ", fullname=" + fullname + ", password=" + password
+				+ ", getUsername()=" + getUsername() + ", getAge()=" + getAge() + ", getFullname()=" + getFullname()
+				+ ", getPassword()=" + getPassword() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 }
