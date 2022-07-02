@@ -1,3 +1,5 @@
+<%@page import="com.hai.dao.InformationDao"%>
+<%@page import="model.Information"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
@@ -24,6 +26,10 @@
 		}
 	}
 	
+	InformationDao informationDao = new InformationDao();
+	Information information = informationDao.findByUsername(username);
+	information = (information != null) ? information : new Information();
+	
 %>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"> <%-- fixed-top --%>
@@ -38,7 +44,7 @@
         <a class="nav-link" href="./">Home <%--<span class="sr-only">(current)</span> --%></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="UserServlet">User Manage</a>
+        <a class="nav-link" href="UserServlet">User Management</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="UploadServlet">Upload</a>
@@ -50,6 +56,14 @@
       <a class="nav-link dropdown-toggle text-success font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= fullname %>
         </a>
+        <a href="ProfileServlet?username=<%=username%>">
+        	<img
+			      src="uploads/<%= information.getUrlavata() %>"
+			      class="rounded-circle"
+			      style = "vertical-align: middle; width: 35px; height: 35px;"
+			      alt="${ information.getUrlavata() }"
+			/>
+		</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="ProfileServlet?username=<%=username%>">Profile</a>
           <a class="dropdown-item" href="UploadServlet">Upload</a>

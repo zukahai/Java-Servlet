@@ -62,7 +62,7 @@ public class UploadServlet extends HttpServlet {
 		User user = userDao.findById(username);
 		String fullname = user.getFullname();
 		
-		request.setAttribute("Images", imageDao.findByUsername(username, 1, limit));
+		request.setAttribute("Images", imageDao.findByUsername(username, 0, limit));
 		request.setAttribute("username", username);
 		request.setAttribute("fullname", fullname);
 		request.setAttribute("page", 1);

@@ -1,3 +1,6 @@
+<%@page import="model.Image"%>
+<%@page import="java.util.List"%>
+<%@page import="com.hai.dao.ImageDao"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="com.hai.dao.InformationDao"%>
 <%@page import="model.Information"%>
@@ -9,6 +12,8 @@
 <%
 	UserDao userDao = new UserDao();
 	InformationDao informationDao = new InformationDao();
+	ImageDao imageDao = new ImageDao();
+	
 	User user = new User();
 	Information information = new Information();
 	
@@ -31,6 +36,9 @@
 	
 	user = (user != null ? user : new User());
 	information = (information != null ? information : new Information());
+	int NumberOfpage = imageDao.countByUsername(username);
+	
+	List<Image> lists = imageDao.findByUsername(username, 0, 4);
 
 %>    
     
@@ -68,36 +76,31 @@
 	          </div>
 	          <div class="p-4 text-black" style="background-color: #f8f9fa;">
 	            <div class="d-flex justify-content-end text-center py-1">
-	              <div>
-	                <p class="mb-1 h5">253</p>
+	              <div class="mx-1">
+	                <p class="mb-1 h5"><%= NumberOfpage %></p>
 	                <p class="small text-muted mb-0">Photos</p>
+	              </div>
+	              <div class="mx-1">
+	                <p class="mb-1 h5">0</p>
+	                <p class="small text-muted mb-0">Videos</p>
 	              </div>
 	            </div>
 	          </div>
 	          <div class="card-body p-4 text-black">
 	            <div class="d-flex justify-content-between align-items-center mb-4">
 	              <p class="lead fw-normal mb-0">Recent photos</p>
-	              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+	              <p class="mb-0"><a href="#" class="text-muted">Show all</a></p>
 	            </div>
 	            <div class="row g-2">
-	              <div class="col mb-2">
-	                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
+	            <% 
+	            for (int i = 0; i < lists.size(); i++) {
+	            	Image image = lists.get(i);
+	            %>
+	              <div class="col-6 my-2">
+	                <img src="uploads/<%= image.getUrl() %>"
 	                  alt="image 1" class="w-100 rounded-3">
 	              </div>
-	              <div class="col mb-2">
-	                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-	                  alt="image 1" class="w-100 rounded-3">
-	              </div>
-	            </div>
-	            <div class="row g-2">
-	              <div class="col">
-	                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-	                  alt="image 1" class="w-100 rounded-3">
-	              </div>
-	              <div class="col">
-	                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-	                  alt="image 1" class="w-100 rounded-3">
-	              </div>
+				<% } %>
 	            </div>
 	          </div>
 	        </div>
