@@ -69,28 +69,22 @@ public class ProfileServlet extends HttpServlet {
 			
 			Part imagepart = request.getPart("image");
 			String readFileName = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
+			
+			Information information = new Information();
+			String imageFilename = "";
 			if (readFileName.length() > 0) {
-				String imageFilename = imageDao.randomImageName();
+				imageFilename = imageDao.randomImageName();
 				imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
-				request.setAttribute("image", imageFilename);
-				
-//				Image image = new Image();
-//				image.setId(imageDao.findIdInsert());
-//				image.setUsername(user.getUsername());
-//				image.setUrl(imageFilename);
-//				image.setDatetime(new Date().toString());
-//				imageDao.insertImage(image);
-				
-				Information information = new Information();
-				information.setUsername(user.getUsername());
-				information.setUrlavata(imageFilename);
-				information.setEmail(request.getParameter("email"));
-				informationDao.update(information);
-				
-				
 			} else {
+				Information i = informationDao.findByUsername(user.getUsername());
+				imageFilename = (i == null) ? "" : i.getUrlavata();
 				request.setAttribute("error", "There is no file you want to send!");
 			}
+			
+			information.setUrlavata(imageFilename);
+			information.setUsername(user.getUsername());
+			information.setEmail(request.getParameter("email"));
+			informationDao.update(information);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

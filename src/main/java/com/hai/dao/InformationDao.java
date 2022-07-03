@@ -41,6 +41,7 @@ public class InformationDao implements IInformation{
 
 	@Override
 	public void update(Information information) throws Exception {
+		System.out.println("Update: " + information);
 		// TODO Auto-generated method stub
 		if (findByUsername(information.getUsername()) == null) {
 			insertUser(information);
