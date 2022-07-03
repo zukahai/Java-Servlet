@@ -12,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.hai.dao.UserDao;
-
-import model.User;
+import com.hai.model.User;
 
 /**
  * Servlet implementation class RegisterServlet

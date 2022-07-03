@@ -1,6 +1,6 @@
-package com.interface_;
+package com.hai.interface_;
 
-import model.Information;
+import com.hai.model.Information;
 
 public interface IInformation {
 	public Information findByUsername(String username);

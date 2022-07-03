@@ -18,9 +18,8 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.hai.dao.ImageDao;
 import com.hai.dao.InformationDao;
 import com.hai.dao.UserDao;
-
-import model.Information;
-import model.User;
+import com.hai.model.Information;
+import com.hai.model.User;
 
 /**
  * Servlet implementation class Profile

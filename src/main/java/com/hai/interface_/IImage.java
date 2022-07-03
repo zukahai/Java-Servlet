@@ -1,9 +1,9 @@
-package com.interface_;
+package com.hai.interface_;
 
 import java.util.List;
 
-import model.Image;
-import model.User;
+import com.hai.model.Image;
+import com.hai.model.User;
 
 public interface IImage {
 	public void insertImage(Image image);

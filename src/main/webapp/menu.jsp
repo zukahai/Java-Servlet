@@ -1,7 +1,7 @@
 <%@page import="com.hai.dao.InformationDao"%>
-<%@page import="model.Information"%>
+<%@page import="com.hai.model.Information"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
-<%@page import="model.User"%>
+<%@page import="com.hai.model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -60,7 +60,7 @@
         	<img
 			      src="uploads/<%= information.getUrlavata() %>"
 			      class="rounded-circle"
-			      style = "vertical-align: middle; width: 35px; height: 35px;"
+			      style = "width: 35px; height: 35px;"
 			      alt="${ information.getUrlavata() }"
 			/>
 		</a>

@@ -1,4 +1,4 @@
-package model;
+package com.hai.model;
 
 public class Data {
 

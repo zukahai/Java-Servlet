@@ -3,10 +3,9 @@ package com.hai.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
+import com.hai.interface_.IInformation;
+import com.hai.model.Information;
 import com.hai.utils.JpaUtils;
-import com.interface_.IInformation;
-
-import model.Information;
 
 public class InformationDao implements IInformation{
 	

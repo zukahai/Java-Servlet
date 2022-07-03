@@ -8,9 +8,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import com.hai.interface_.IImage;
+import com.hai.model.Image;
 import com.hai.utils.JpaUtils;
-import com.interface_.IImage;
-import model.Image;
 
 
 public class ImageDao implements IImage{

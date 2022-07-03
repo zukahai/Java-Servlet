@@ -1,6 +1,6 @@
 <%@page import="com.hai.dao.InformationDao"%>
-<%@page import="model.Information"%>
-<%@page import="model.User"%>
+<%@page import="com.hai.model.Information"%>
+<%@page import="com.hai.model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

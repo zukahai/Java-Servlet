@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hai.cookie.SolveCookie;
 import com.hai.dao.ImageDao;
 import com.hai.dao.UserDao;
-
-import model.User;
+import com.hai.model.User;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {

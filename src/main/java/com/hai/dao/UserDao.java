@@ -5,9 +5,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import com.hai.interface_.IUser;
+import com.hai.model.User;
 import com.hai.utils.JpaUtils;
-import com.interface_.IUser;
-import model.User;
 
 public class UserDao implements IUser{
 	public void insertUser(User user) throws Exception {

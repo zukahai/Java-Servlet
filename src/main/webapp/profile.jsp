@@ -1,10 +1,10 @@
-<%@page import="model.Image"%>
+<%@page import="com.hai.model.Image"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hai.dao.ImageDao"%>
 <%@page import="org.hibernate.internal.build.AllowSysOut"%>
 <%@page import="com.hai.dao.InformationDao"%>
-<%@page import="model.Information"%>
-<%@page import="model.User"%>
+<%@page import="com.hai.model.Information"%>
+<%@page import="com.hai.model.User"%>
 <%@page import="com.hai.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>

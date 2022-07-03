@@ -1,8 +1,8 @@
-package com.interface_;
+package com.hai.interface_;
 
 import java.util.List;
 
-import model.User;
+import com.hai.model.User;
 
 public interface IUser {
 	public void insertUser(User user) throws Exception;
