@@ -19,7 +19,7 @@
 
     <!-- Section: Text -->
     <section class="mb-4">
-      <p> HaiZuka - Servler </p>
+      <p> HaiZuka - Servlet </p>
       <p>I create projects for my blog posts, sometimes just for fun. <br>
       You are free to use my projects. <br>
       I am really glad to see you here !</p>

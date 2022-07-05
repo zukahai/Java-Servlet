@@ -27,7 +27,7 @@
   	<jsp:include page="menu.jsp"></jsp:include>
   
   	<div class="container mt-4">
-  		<div class="row">
+  		<div class="row d-flex justify-content-center">
   			<div class="alert alert-success">
   				<h2>${ fullname } - Upload Image</h2>
   			</div>

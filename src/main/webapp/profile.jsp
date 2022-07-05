@@ -84,12 +84,16 @@
 	                <p class="mb-1 h5">0</p>
 	                <p class="small text-muted mb-0">Videos</p>
 	              </div>
+	              <div class="mx-1">
+	                <p class="mb-1 h5">0</p>
+	                <p class="small text-muted mb-0">Documents</p>
+	              </div>
 	            </div>
 	          </div>
 	          <div class="card-body p-4 text-black">
 	            <div class="d-flex justify-content-between align-items-center mb-4">
 	              <p class="lead fw-normal mb-0">Recent photos</p>
-	              <p class="mb-0"><a href="#" class="text-muted">Show all</a></p>
+	              <p class="mb-0"><a href="UploadServlet" class="text-muted">Show all</a></p>
 	            </div>
 	            <div class="row g-2">
 	            <% 

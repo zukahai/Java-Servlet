@@ -19,7 +19,7 @@
   	<jsp:include page="menu.jsp"></jsp:include>
   
   	<div class="container mt-4">
-  		<div class="row">
+  		<div class="row d-flex justify-content-center">
   			<div class="col">
   				<div class="alert alert-success">
 	  				<h2>Login your account</h2>
