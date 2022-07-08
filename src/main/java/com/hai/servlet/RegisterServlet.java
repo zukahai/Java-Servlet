@@ -35,16 +35,18 @@ public class RegisterServlet extends HttpServlet {
 				userDao.insertUser(user);
 				request.setAttribute("user", user);
 				request.setAttribute("message", "Register success!");
+				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 			else {
 				request.setAttribute("user", user);
 				request.setAttribute("error", "Register failer!");
+				request.getRequestDispatcher("register.jsp").forward(request, response);
 			}
 				
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			request.setAttribute("error", e.getMessage());
+			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("register.jsp").forward(request, response);
 	}
 }
