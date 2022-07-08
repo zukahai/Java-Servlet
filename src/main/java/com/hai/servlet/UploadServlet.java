@@ -86,6 +86,7 @@ public class UploadServlet extends HttpServlet {
 		// D:\Java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Servlet\
 		ImageDao imageDao = new ImageDao();
 		String uploadFolder = request.getServletContext().getRealPath("/uploads");
+		System.out.println(uploadFolder);
 		Path uploadPath = Paths.get(uploadFolder);
 		
 		if (!Files.exists(uploadPath)) {
