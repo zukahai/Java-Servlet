@@ -18,6 +18,7 @@
 				username = c.getValue();
 		}
 	}
+	
 	if (!username.equals("Error")) {
 		UserDao userDao = new UserDao();
 		User user = userDao.findById(username);
@@ -52,17 +53,18 @@
      
     </ul>
     <% if (fullname.length() > 0)  {%>
-    <form class="form-inline my-2 my-lg-0  nav-item dropdown">
+    <form class="form-inline nav-item dropdown">
       <a class="nav-link dropdown-toggle text-success font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= fullname %>
-        </a>
-        <a href="ProfileServlet?username=<%=username%>">
-        	<img
+          <img
 			      src="uploads/<%= information.getUrlavata() %>"
-			      class="rounded-circle"
+			      class="rounded-circle ml-3"
 			      style = "width: 35px; height: 35px;"
 			      alt="${ information.getUrlavata() }"
 			/>
+        </a>
+        <a href="ProfileServlet?username=<%=username%>">
+        	
 		</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="ProfileServlet?username=<%=username%>">Profile</a>
