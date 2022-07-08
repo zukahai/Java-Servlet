@@ -73,7 +73,7 @@ public class ProfileServlet extends HttpServlet {
 			Information information = new Information();
 			String imageFilename = "";
 			if (readFileName.length() > 0) {
-				imageFilename = imageDao.randomImageName();
+				imageFilename = imageDao.randomImageName(user.getUsername());
 				imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
 			} else {
 				Information i = informationDao.findByUsername(user.getUsername());

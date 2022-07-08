@@ -24,7 +24,7 @@ import com.hai.model.User;
  * Servlet implementation class UploadServlet
  */
 @MultipartConfig
-@WebServlet(urlPatterns = {"/UploadServlet", "/UploadServlet/insert", "/UploadServlet/delete"})
+@WebServlet({"/UploadServlet", "/UploadServlet/insert", "/UploadServlet/delete"})
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int limit = 6;
@@ -95,7 +95,7 @@ public class UploadServlet extends HttpServlet {
 		Part imagepart = request.getPart("image");
 		String readFileName = Path.of(imagepart.getSubmittedFileName()).getFileName().toString();
 		if (readFileName.length() > 0) {
-			String imageFilename = imageDao.randomImageName();
+			String imageFilename = imageDao.randomImageName(username);
 			imagepart.write(Paths.get(uploadPath.toString(), imageFilename).toString());
 			request.setAttribute("image", imageFilename);
 			

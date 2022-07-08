@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class JpaUtils {
 	public static EntityManager getEntityManager() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Servlet");
+		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HaiZuka");
 		return entityManagerFactory.createEntityManager();
 	}
 }

@@ -75,14 +75,14 @@ public class ImageDao implements IImage{
 	}
 
 	@Override
-	public String randomImageName() {
+	public String randomImageName(String username) {
 		// TODO Auto-generated method stub
 		int lengthResult = 80;
 		String source = "0123456789abcdefghijklmnopqrstuvwxyz";
 		String ans = "";
 		for (int i = 0; i < lengthResult; i++)
 			ans = ans + source.charAt((int)(Math.random() * 1000000) % source.length());
-		ans = ans + ".png";
+		ans = username + "_" + ans + ".png";
 		return ans;
 	}
 
